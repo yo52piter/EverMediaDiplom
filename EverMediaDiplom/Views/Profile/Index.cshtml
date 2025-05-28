@@ -1,0 +1,91 @@
+﻿@model EverMediaDiplom.ViewModels.ProfileViewModel
+@{
+    ViewData["Title"] = "Профиль";
+    Layout = "_Layout";
+}
+
+<div class="em-profile">
+    <section class="em-user-card">
+        <div class="em-avatar-container">
+            <img src="~/assets/images/default-avatar.png" alt="Аватар" class="em-avatar">
+        </div>
+        <div class="em-user-info">
+            <h2 class="em-username">@Model.User.Name</h2>
+            <p class="em-user-email">@Model.User.Email</p>
+        </div>
+    </section>
+
+    <section class="em-orders-section">
+        <h3 class="em-section-title">
+            <i class="fas fa-camera-retro"></i> История заказов
+        </h3>
+
+        @if (Model.User.ClientSessions != null && Model.User.ClientSessions.Any())
+        {
+            <div class="em-orders-grid">
+                @foreach (var session in Model.User.ClientSessions.OrderByDescending(s => s.SessionDate))
+                {
+                    <div class="em-order-card @session.Status.ToLower()">
+                        <div class="em-order-header">
+                            <h4>@session.Service?.Name</h4>
+                            <span class="em-order-date">@session.SessionDate.ToString("dd.MM.yyyy")</span>
+                        </div>
+                        <div class="em-order-body">
+                            @if (!string.IsNullOrEmpty(session.SpecialRequests))
+                            {
+                                <p class="em-order-notes">
+                                    <i class="fas fa-comment-alt"></i> @session.SpecialRequests
+                                </p>
+                            }
+                            <div class="em-order-footer">
+                                <span class="em-order-price">@session.Service?.Price.ToString("N0") ₽</span>
+                                <span class="em-order-status">@session.Status</span>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="em-no-orders">
+                <i class="fas fa-calendar-times"></i>
+                <p>У вас пока нет заказов</p>
+                <a href="/Services" class="em-primary-btn">Выбрать услугу</a>
+            </div>
+        }
+    </section>
+
+    <section class="em-profile-form">
+        <h3 class="em-section-title">
+            <i class="fas fa-user-edit"></i> Редактировать профиль
+        </h3>
+        <form asp-action="UpdateProfile" method="post">
+            <div class="em-form-group">
+                <label>Имя</label>
+                <input asp-for="NewName" class="em-form-control" value="@Model.User.Name">
+                <span asp-validation-for="NewName" class="em-error-message"></span>
+            </div>
+            <div class="em-form-group">
+                <label>Email</label>
+                <input asp-for="NewEmail" class="em-form-control" value="@Model.User.Email">
+                <span asp-validation-for="NewEmail" class="em-error-message"></span>
+            </div>
+            <div class="em-form-group">
+                <label>Новый пароль</label>
+                <input asp-for="NewPassword" type="password" class="em-form-control">
+                <span asp-validation-for="NewPassword" class="em-error-message"></span>
+            </div>
+            <div class="em-form-group">
+                <label>Подтвердите пароль</label>
+                <input asp-for="ConfirmPassword" type="password" class="em-form-control">
+                <span asp-validation-for="ConfirmPassword" class="em-error-message"></span>
+            </div>
+            <button type="submit" class="em-submit-btn">Сохранить изменения</button>
+        </form>
+    </section>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

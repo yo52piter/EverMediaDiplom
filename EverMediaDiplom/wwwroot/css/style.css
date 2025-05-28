@@ -1,0 +1,1499 @@
+/**********************************************************
+  Add Google Fonts
+**********************************************************/
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Nunito:wght@400;500;600');
+
+
+/**********************************************************
+  Reset Default Properties Start
+**********************************************************/
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    width: 1rem;
+  }
+  
+  ::-webkit-scrollbar-track {
+    box-shadow: 0 0 .4rem rgba(0, 0, 0, 0.288) inset;
+    background-color: var(--white);
+    border-radius: 5rem;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--dark-red);
+    border-radius: 7rem;
+  }
+
+
+
+html {
+    font-size: 62.5%;
+    /* Now 1rem = 10px */
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body{
+    overflow: hidden;
+}
+
+
+/**********************************************************
+    Reset Default Properties End
+**********************************************************/
+
+
+/**********************************************************
+    Variables Start
+**********************************************************/
+:root {
+
+    /* Theme Colors */
+    --black: #000;
+    --white: #fff;
+    --dark-red: #e74c3c;
+
+
+    /* Theme Fonts */
+    --font-family-1: 'Lato', sans-serif;
+    --font-family-2: 'Nunito', sans-serif;
+}
+
+/**********************************************************
+    Variables End
+**********************************************************/
+
+
+/**********************************************************
+  Common Properties to Frequently Used Elements Start
+**********************************************************/
+a {
+    text-decoration: none;
+    display: inline-block;
+}
+
+button {
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    transition: all .3s linear;
+}
+
+li {
+    list-style-type: none;
+    font-family: var(--font-family-2);
+    text-transform: uppercase;
+    transition: all 0.3s linear;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-family-1);
+    text-transform: uppercase;
+}
+
+p {
+    font-family: var(--font-family-2);
+}
+
+input {
+    border: none;
+}
+
+input:focus {
+    outline: none;
+}
+
+img {
+    display: inline-block;
+}
+
+/**********************************************************
+  Common Properties to Frequently Used Elements End
+**********************************************************/
+
+
+/*****************************************************************************************
+  Actual Document Styling Start
+*****************************************************************************************/
+
+
+/**********************************************************
+  Styling Position Fixed Elements Start
+**********************************************************/
+
+/**********************************************************
+  Open Menubar Button to Open Menubar On Mobiles
+**********************************************************/
+
+.open-menubar-btn {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%) rotate(45deg);
+    width: 5rem;
+    height: 5rem;
+    background-color: var(--dark-red);
+    z-index: 10;
+}
+
+.open-menubar-btn::before,
+.close-menubar-btn::before {
+    content: "";
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 50%;
+    background-color: var(--white);
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+.close-menubar-btn {
+    position: absolute;
+    width: 5rem;
+    height: 5rem;
+    background-color: var(--white);
+    transform: translate(-50%, -50%) rotate(45deg);
+    left: 50%;
+    top: 0;
+}
+
+.open-menubar-btn,
+.close-menubar-btn {
+    display: none;
+}
+
+.close-menubar-btn::before {
+    background-color: var(--dark-red);
+}
+
+/**********************************************************
+  Styling Position Fixed Elements End
+**********************************************************/
+
+
+/**********************************************************
+  Wrapper Start
+**********************************************************/
+.wrapper {
+    width: 100vw;
+    height: auto;
+}
+
+/**********************************************************
+    Wrapper End
+**********************************************************/
+
+
+/**********************************************************
+  Navbar Start
+**********************************************************/
+.navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--white);
+    z-index: 10;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.4);
+}
+
+
+/**********************************************************
+  Navbar Inner
+**********************************************************/
+.navbar-inner {
+    padding: 2rem 0;
+    position: relative;
+}
+
+.navbar-inner .logo h1 {
+    color: var(--black);
+    font-size: 3.2rem;
+}
+
+
+/**********************************************************
+  Menubar Start
+**********************************************************/
+.menubar ul.flex {
+    gap: 3rem;
+}
+
+.menubar ul li a {
+    font-size: 1.6rem;
+    color: var(--black);
+    transition: all 0.3s linear;
+}
+
+@media (hover:hover) {
+    .menubar ul li a:hover {
+        color: var(--dark-red);
+    }
+}
+
+
+/**********************************************************
+  Navbar Buttons Start
+**********************************************************/
+.navbar-btns button {
+    border-radius: 5px;
+    padding: 1.2rem 2rem;
+}
+
+.navbar-btns button:first-child {
+    margin-right: 0.8rem;
+}
+
+/**********************************************************
+  Navbar End
+**********************************************************/
+
+
+/**********************************************************
+  Hero Section Start
+**********************************************************/
+#hero-section {
+    min-height: calc(100vh - 7.6rem);
+    background-image: linear-gradient(#e74d3c7b, rgba(0, 0, 0, 0.404)), url("../assets/images/banner1.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: changeGradient 16s linear infinite alternate;
+}
+
+#hero-section.flex {
+    justify-content: center;
+    flex-direction: column;
+}
+
+#hero-section .camera-icon {
+    font-size: 6rem;
+    color: var(--white);
+}
+
+#hero-section h1 {
+    color: var(--white);
+    font-size: 5rem;
+    text-shadow: 2px 2px 5px var(--black);
+    margin: 2rem 0 3rem 0;
+    font-variant: small-caps;
+    text-align: center;
+}
+
+#hero-section .input-btn-box {
+    width: 60%;
+    height: 5rem;
+}
+
+#hero-section .input-btn-box input {
+    width: 78%;
+    height: 100%;
+    padding: 1rem;
+    font-size: 1.8rem;
+    background-color: var(--white);
+    border-radius: 5px 0px 0px 5px;
+}
+
+#hero-section .input-btn-box input::placeholder {
+    color: var(--black);
+}
+
+#hero-section .input-btn-box button {
+    width: 22%;
+    height: 100%;
+    border-radius: 0px 5px 5px 0px;
+    font-size: 1.8rem;
+}
+
+/**********************************************************
+  Hero Section End
+**********************************************************/
+
+
+
+/**********************************************************
+  Gallery Section Start
+**********************************************************/
+#gallery-section {
+    padding: 5rem 0;
+}
+
+
+/**********************************************************
+  Gallery Section Menubar
+**********************************************************/
+.gallery-menubar ul.flex {
+    justify-content: center;
+    padding: 3rem 0;
+    gap: 5rem;
+}
+
+.gallery-menubar ul li {
+    font-size: 1.6rem;
+    font-weight: 700;
+    padding: 1rem 2rem;
+    transition: all .3s linear;
+    cursor: pointer;
+}
+
+.gallery-menubar ul li.active,
+.gallery-menubar ul li:hover {
+    background-color: var(--dark-red);
+    color: var(--white);
+}
+
+/**********************************************************
+  Gallery Section Images Container
+**********************************************************/
+.gallery-imgs-container img {
+    width: 32%;
+    margin-bottom: 2%;
+    transition: all 0.3s linear;
+}
+
+.gallery-imgs-container img.animate {
+    animation: zoom 0.4s ease-in 1;
+}
+
+@media (hover:hover) {
+
+    .gallery-imgs-container img:hover {
+        filter: drop-shadow(8px 13px 10px rgba(0, 0, 0, 0.9));
+        cursor: pointer;
+    }
+}
+
+/**********************************************************
+  Gallery Section End
+**********************************************************/
+
+
+/**********************************************************
+  Testimonials Section Start
+**********************************************************/
+#testimonials-section {
+    padding: 5rem 0;
+}
+
+/**********************************************************
+  Testimonials Section Info
+**********************************************************/
+.testimonial-info {
+    text-align: center;
+}
+
+.testimonial-info h3 {
+    font-size: 2rem;
+    margin: 2rem 0;
+}
+
+.testimonial-info img {
+    width: 20rem;
+    margin: 2rem 0;
+}
+
+.testimonial-info p {
+    color: var(--dark-red);
+    font-size: 1.6rem;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.testimonial-info h2 {
+    font-size: 3rem;
+    margin: 2rem 0;
+}
+
+/**********************************************************
+  Testimonials Section End
+**********************************************************/
+
+
+/**********************************************************
+  Members Section Start
+**********************************************************/
+#members-section {
+    padding: 5rem 0;
+}
+
+.members-imgs-container img {
+    padding: 0.5rem;
+    width: 16.66%;
+    transition: all 0.4s linear;
+}
+
+@media (hover:hover) {
+
+    .members-imgs-container img:hover {
+        transform: scale(1.1, 1.1);
+    }
+
+}
+
+/**********************************************************
+  Members Section End
+**********************************************************/
+
+
+/**********************************************************
+  Social Media Images Start
+**********************************************************/
+.social-media-images {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.social-media-images a {
+    margin-inline: 3rem;
+}
+
+.social-media-images img {
+    width: 15rem;
+}
+
+/**********************************************************
+  Social Media Images End
+**********************************************************/
+
+
+
+/**********************************************************
+  Footer Start
+**********************************************************/
+footer {
+    background-color: var(--black);
+    padding: 5rem 0;
+}
+
+.footer-inner .subscribe-email-box {
+    padding: 2rem;
+    border: 2px solid var(--white);
+    margin-bottom: 5rem;
+}
+
+.subscribe-email-left,
+.subscribe-email-right {
+    width: 50%;
+}
+
+.subscribe-email-left h1 {
+    color: var(--dark-red);
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.subscribe-email-left p {
+    color: var(--white);
+    font-size: 1.6rem;
+    font-weight: 400;
+    text-transform: capitalize;
+}
+
+.subscribe-email-right .email-btn-box {
+    width: 90%;
+    height: 5rem;
+    float: right;
+}
+
+.subscribe-email-right .email-btn-box input {
+    width: 75%;
+    height: 100%;
+    padding: 1rem;
+    font-size: 1.8rem;
+    background-color: var(--white);
+    border-radius: 5px 0px 0px 5px;
+}
+
+.subscribe-email-right .email-btn-box button {
+    width: 25%;
+    height: 100%;
+    border-radius: 0px 5px 5px 0px;
+    font-size: 1.8rem;
+}
+
+.footer-infos-row.flex {
+    align-items: flex-start;
+}
+
+.footer-info-col {
+    flex: 1;
+    text-align: center;
+}
+
+.footer-info-col h2 {
+    color: var(--white);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.footer-info-col p {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: rgb(194, 194, 194);
+}
+
+.footer-info-col .social-media-icons a {
+    font-size: 1.6rem;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border: 2px solid rgb(194, 194, 194);
+    color: rgb(194, 194, 194);
+    text-align: center;
+    line-height: 3.6rem;
+    margin: 1rem;
+    transition: all .3s linear;
+}
+
+@media (hover:hover) {
+    .footer-info-col .social-media-icons a:hover {
+        color: var(--black);
+        background-color: var(--white);
+    }
+}
+
+.footer-info-col ul li {
+    font-size: 1.5rem;
+    margin-bottom: 0.6rem;
+    color: rgb(194, 194, 194);
+}
+
+/**********************************************************
+  Footer End
+**********************************************************/
+
+
+
+/**********************************************************
+  Keyframes For Animations Start
+**********************************************************/
+
+
+/**********************************************************
+  Keyframes to Change Gradient In Hero Section Start
+**********************************************************/
+@keyframes changeGradient {
+    0% {
+        background-image: linear-gradient(0deg, #e74d3c7b, rgba(0, 0, 0, 0.404)), url("../assets/images/banner1.jpg");
+    }
+
+    20% {
+        background-image: linear-gradient(10deg, #e74d3c7b, rgba(0, 0, 0, 0.404)), url("../assets/images/banner1.jpg");
+    }
+
+    40% {
+        background-image: linear-gradient(20deg, #e74d3c7b, rgba(0, 0, 0, 0.404)), url("../assets/images/banner1.jpg");
+    }
+
+    60% {
+        background-image: linear-gradient(300deg, #e74d3c7b, rgba(0, 0, 0, 0.404)), url("../assets/images/banner1.jpg");
+    }
+
+    80% {
+        background-image: linear-gradient(40deg, #e74d3c7b, rgba(0, 0, 0, 0.404)), url("../assets/images/banner1.jpg");
+    }
+
+    100% {
+        background-image: linear-gradient(50deg, #e74d3c7b, rgba(0, 0, 0, 0.404)), url("../assets/images/banner1.jpg");
+    }
+}
+
+/**********************************************************
+  Keyframes to Change Gradient In Hero Section End
+**********************************************************/
+
+
+/**********************************************************
+  Keyframes to Zoom Gallery Image When Loaded Start
+**********************************************************/
+@keyframes zoom {
+    from {
+        transform: scale(0.7);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+/* Hero Slider Styles */
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.slider-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.5s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.slide-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    padding: 0 2rem;
+}
+
+.slider-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.slider-prev, .slider-next {
+    background: rgba(231, 76, 60, 0.7);
+    color: white;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 2rem;
+    transition: all 0.3s;
+}
+
+.slider-prev:hover, .slider-next:hover {
+    background: var(--dark-red);
+}
+
+.slider-dots {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1rem;
+    z-index: 10;
+}
+
+.slider-dots .dot {
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.slider-dots .dot.active {
+    background: var(--dark-red);
+    transform: scale(1.2);
+}
+/* Стили для карточек сотрудников */
+.members-imgs-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.member-card {
+    position: relative;
+    width: 250px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.member-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.member-info {
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem;
+    background: rgba(231, 76, 60, 0.9);
+    color: white;
+    transition: all 0.4s ease;
+    text-align: center;
+}
+
+.member-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-family-1);
+}
+
+.member-info p {
+    font-size: 1.4rem;
+    font-family: var(--font-family-2);
+}
+
+/* Анимация при наведении */
+.member-card:hover .member-info {
+    bottom: 0;
+}
+
+.member-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .member-card {
+        width: 200px;
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .member-card {
+        width: 150px;
+        height: 200px;
+    }
+    .member-info h3 {
+        font-size: 1.5rem;
+    }
+}
+/* Стили для меню пользователя */
+.user-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.user-name {
+  cursor: pointer;
+  padding: 10px 15px;
+  color: white;
+  background-color: #e74c3c;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.user-name:hover {
+  background-color: #c0392b;
+}
+
+.user-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 4px;
+}
+
+.user-dropdown.show {
+  display: block;
+}
+
+.user-dropdown a {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.user-dropdown a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Стили страницы профиля */
+.profile-container {
+    padding: 5rem 0;
+}
+
+.profile-header {
+    gap: 5rem;
+    margin-bottom: 5rem;
+    align-items: flex-start;
+}
+
+.profile-avatar {
+    text-align: center;
+    flex: 0 0 250px;
+}
+
+.profile-avatar img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--dark-red);
+    margin-bottom: 2rem;
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.profile-email, .profile-role {
+    font-size: 1.8rem;
+    color: #666;
+    margin: 1rem 0;
+}
+
+.profile-stats {
+    margin-top: 3rem;
+    gap: 3rem;
+}
+
+.stat-item {
+    text-align: center;
+    background: #f5f5f5;
+    padding: 1.5rem 2rem;
+    border-radius: 5px;
+    flex: 1;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--dark-red);
+}
+
+.stat-label {
+    font-size: 1.4rem;
+    color: #666;
+}
+
+.profile-tabs {
+    border-bottom: 2px solid #eee;
+    margin-bottom: 3rem;
+    gap: 0;
+}
+
+.tab-btn {
+    padding: 1.5rem 3rem;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    position: relative;
+    color: #666;
+}
+
+.tab-btn.active {
+    color: var(--dark-red);
+    font-weight: bold;
+}
+
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--dark-red);
+}
+
+.tab-content {
+    display: none;
+    padding: 2rem 0;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.user-gallery {
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.gallery-item {
+    flex: 0 0 calc(33.333% - 2rem);
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.gallery-item-info {
+    padding: 2rem;
+    background: white;
+}
+
+.gallery-item-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.gallery-item-info p {
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.small-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1.2rem;
+}
+
+.settings-form {
+    max-width: 600px;
+    margin-top: 3rem;
+}
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 1.2rem;
+    font-size: 1.6rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .profile-header {
+        flex-direction: column;
+        gap: 3rem;
+    }
+    
+    .profile-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .gallery-item {
+        flex: 0 0 100%;
+    }
+}
+/* Auth Pages - в стиле оригинального дизайна */
+.auth-page {
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 400px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.auth-header {
+    background-color: #fff;
+    padding: 25px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+    .auth-header h2 {
+        margin: 0;
+        font-size: 24px;
+        color: #333;
+        font-weight: 600;
+    }
+
+.auth-body {
+    padding: 25px;
+}
+
+/* Формы */
+.auth-form .form-group {
+    margin-bottom: 20px;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+    .auth-form input:focus {
+        border-color: #d32f2f;
+        outline: none;
+    }
+
+.auth-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    .auth-form button:hover {
+        background-color: #b71c1c;
+    }
+
+.auth-footer {
+    text-align: center;
+    padding: 20px;
+    background: #f9f9f9;
+    border-top: 1px solid #eee;
+    font-size: 14px;
+    color: #666;
+}
+
+.auth-link a {
+    color: #d32f2f;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.auth-link a:hover {
+    text-decoration: underline;
+}
+.alert {
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 1.4;
+    font-weight: 500;
+    box-sizing: border-box;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.alert ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.alert li {
+    margin-bottom: 5px;
+}
+/**********************************************************
+  Profile Section Start
+**********************************************************/
+
+.profile-container {
+    width: 100%;
+    padding: 5rem 0;
+    background-color: #f9f9f9;
+}
+
+.profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4rem;
+    background: var(--white);
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+}
+
+.profile-avatar {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+    .profile-avatar img {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid var(--dark-red);
+    }
+
+.avatar-edit-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--dark-red);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+}
+
+.profile-info {
+    text-align: center;
+    width: 100%;
+}
+
+.profile-name {
+    font-size: 2.8rem;
+    color: var(--black);
+    margin-bottom: 0.5rem;
+    font-family: var(--font-family-1);
+}
+
+.profile-email {
+    font-size: 1.6rem;
+    color: #666;
+    margin-bottom: 1rem;
+    font-family: var(--font-family-2);
+}
+
+.profile-role {
+    display: inline-block;
+    background: var(--dark-red);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+}
+
+.profile-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 1rem 2rem;
+}
+
+.stat-number {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--dark-red);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 1.4rem;
+    color: #666;
+}
+
+.profile-tabs {
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid #eee;
+    margin-bottom: 3rem;
+}
+
+.tab-btn {
+    padding: 1.5rem 3rem;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    position: relative;
+    color: #666;
+    font-family: var(--font-family-2);
+    text-transform: uppercase;
+}
+
+    .tab-btn.active {
+        color: var(--dark-red);
+        font-weight: 600;
+    }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--dark-red);
+        }
+
+.tab-content {
+    display: none;
+    padding: 2rem 0;
+}
+
+    .tab-content.active {
+        display: block;
+    }
+
+/* Gallery Tab */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+    .gallery-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+.item-actions {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.action-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.9);
+    border: none;
+    color: var(--dark-red);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+}
+
+/* Settings Tab */
+.settings-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--white);
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+    .form-group label {
+        display: block;
+        font-size: 1.6rem;
+        margin-bottom: 0.8rem;
+        color: var(--black);
+        font-family: var(--font-family-2);
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 1.2rem;
+        font-size: 1.6rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-family: var(--font-family-2);
+    }
+
+.form-actions {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+    .profile-header {
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .profile-avatar {
+        margin-right: 3rem;
+        margin-bottom: 0;
+    }
+
+    .profile-info {
+        text-align: left;
+    }
+
+    .profile-stats {
+        justify-content: flex-start;
+    }
+}
+/* Добавьте эти стили в ваш profile.css */
+.tabs-container {
+    min-height: 500px; /* Фиксированная минимальная высота */
+    position: relative;
+}
+
+.tab-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    padding: 2rem 0;
+}
+
+.tab-content.active {
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+}
+/**********************************************************
+  Services Section Start
+**********************************************************/
+#services-section {
+    padding: 5rem 0;
+    background-color: #f9f9f9;
+}
+
+.services-container {
+    gap: 3rem;
+    margin-top: 4rem;
+}
+
+.service-card {
+    flex: 1;
+    min-width: 300px;
+    background: var(--white);
+    padding: 3rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+    .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    }
+
+.service-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 2rem;
+    background: var(--dark-red);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+}
+
+.service-card h3 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--black);
+    font-family: var(--font-family-1);
+}
+
+.service-card p {
+    font-size: 1.6rem;
+    color: #666;
+    margin-bottom: 2rem;
+    font-family: var(--font-family-2);
+}
+
+.service-card .common-btn {
+    margin: 0 auto;
+    display: inline-block;
+}
+
+/**********************************************************
+  Services Section End
+**********************************************************/
+
+/**********************************************************
+  Profile Section End
+**********************************************************/
+
+/**********************************************************
+  Keyframes to Zoom Gallery Image When Loaded End
+**********************************************************/
+
+
+/**********************************************************
+  Keyframes For Animations End
+**********************************************************/
+
+
+/*****************************************************************************************
+  Actual Document Styling End
+*****************************************************************************************/

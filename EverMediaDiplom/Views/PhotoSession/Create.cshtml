@@ -1,0 +1,85 @@
+﻿@model EverMediaDiplom.ViewModels.PhotoSessionViewModel
+@{
+    ViewData["Title"] = "Оформление заказа";
+    Layout = "_Layout";
+}
+
+<div class="em-order-container">
+    <form asp-action="Create" method="post" class="em-order-form">
+        @Html.AntiForgeryToken()
+
+        <input type="hidden" asp-for="ServiceId" />
+
+        <div class="em-service-card">
+            <div class="em-service-info">
+                <h3>@Model.ServiceName</h3>
+                <p>@Model.ServiceDescription</p>
+                <div class="em-service-price">
+                    <span>@Model.ServicePrice.ToString("N0") ₽</span>
+                    <span>@Model.ServiceDurationHours ч</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="em-form-section">
+            <h3><i class="far fa-calendar-alt"></i> Дата и время</h3>
+            <div class="em-form-group">
+                <label asp-for="SessionDate">Дата фотосессии*</label>
+                <input asp-for="SessionDate" type="datetime-local" class="em-form-control"
+                       min="@DateTime.Now.AddDays(1).ToString("yyyy-MM-dd")T08:00"
+                       max="@DateTime.Now.AddMonths(3).ToString("yyyy-MM-dd")T20:00" />
+                <span asp-validation-for="SessionDate" class="em-error-message"></span>
+            </div>
+        </div>
+
+        <div class="em-form-section">
+            <h3><i class="far fa-user"></i> Контактные данные</h3>
+            <div class="em-form-group">
+                <label asp-for="ClientName">Ваше имя*</label>
+                <input asp-for="ClientName" class="em-form-control" />
+                <span asp-validation-for="ClientName" class="em-error-message"></span>
+            </div>
+            <div class="em-form-group">
+                <label asp-for="ClientPhone">Телефон*</label>
+                <input asp-for="ClientPhone" class="em-form-control" type="tel" />
+                <span asp-validation-for="ClientPhone" class="em-error-message"></span>
+            </div>
+        </div>
+
+        <div class="em-form-section">
+            <h3><i class="far fa-comment-dots"></i> Дополнительная информация</h3>
+            <div class="em-form-group">
+                <label asp-for="SpecialRequests">Особые пожелания</label>
+                <textarea asp-for="SpecialRequests" class="em-form-control" rows="4"
+                          placeholder="Укажите желаемый стиль съемки, локацию и другие детали"></textarea>
+                <span asp-validation-for="SpecialRequests" class="em-error-message"></span>
+            </div>
+        </div>
+
+        <div class="em-form-actions">
+            <button type="submit" class="em-submit-btn">
+                <i class="fas fa-check-circle"></i> Подтвердить заказ
+            </button>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $(document).ready(function () {
+            // Валидация даты на клиенте
+            $('form').submit(function (e) {
+                var selectedDate = new Date($('#SessionDate').val());
+                var now = new Date();
+
+                if (selectedDate <= now) {
+                    alert('Дата фотосессии должна быть в будущем');
+                    e.preventDefault();
+                    return false;
+                }
+                return true;
+            });
+        });
+    </script>
+}

@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Галерея";
+}
+
+<section id="gallery-section">
+    <div class="gallery-inner max-width">
+        <h1 class="section-heading">Гал<span class="red-text">лерея</span></h1>
+
+        <div class="gallery-menubar">
+            <ul class="flex">
+                <li class="active">Все</li>
+                <li>Природа</li>
+                <li>Мода</li>
+                <li>Свадьба</li>
+            </ul>
+        </div>
+
+        <div class="gallery-imgs-container flex">
+            <img src="~/assets/images/p1.jpg" alt="Природа" data-image="nature">
+            <img src="~/assets/images/p2.jpg" alt="Природа" data-image="nature">
+            <!-- Остальные изображения -->
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script src="~/js/index.js"></script>
+}

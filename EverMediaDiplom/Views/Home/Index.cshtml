@@ -1,0 +1,141 @@
+﻿@{
+    ViewData["Title"] = "Главная";
+}
+
+<!---------------------------------------------------------
+    Hero Section with Slider
+---------------------------------------------------------->
+<header>
+    <section id="hero-section">
+        <div class="hero-slider">
+            <div class="slider-container">
+                <div class="slide active" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/assets/images/banner1.jpg')">
+                    <div class="slide-content">
+                        <span class="camera-icon"><i class="fa fa-camera"></i></span>
+                        <h1>Запечатли <span class="red-text">момент</span></h1>
+                        <p>Профессиональная фотосъемка для ваших самых ярких воспоминаний</p>
+                    </div>
+                </div>
+                <div class="slide" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/assets/images/banner2.jpg')">
+                    <div class="slide-content">
+                        <span class="camera-icon"><i class="fa fa-camera"></i></span>
+                        <h1>Креативные <span class="red-text">решения</span></h1>
+                        <p>Индивидуальный подход к каждой фотосессии</p>
+                    </div>
+                </div>
+                <div class="slide" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/assets/images/banner3.jpg')">
+                    <div class="slide-content">
+                        <span class="camera-icon"><i class="fa fa-camera"></i></span>
+                        <h1>Незабываемые <span class="red-text">воспоминания</span></h1>
+                        <p>Сохраним ваши эмоции на долгие годы</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-controls">
+                <button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="slider-next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="slider-dots"></div>
+        </div>
+    </section>
+</header>
+
+<!---------------------------------------------------------
+    Services Section (New Section)
+---------------------------------------------------------->
+<section id="services-section">
+    <div class="services-inner max-width">
+        <h1 class="section-heading">Наши <span class="red-text">Услуги</span></h1>
+
+        <div class="services-container flex">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-ring"></i>
+                </div>
+                <h3>Свадебная фотосъемка</h3>
+                <p>Профессиональная съемка вашего особенного дня с индивидуальным подходом</p>
+                <a href="/Services" class="common-btn">Подробнее</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-portrait"></i>
+                </div>
+                <h3>Портретная съемка</h3>
+                <p>Создание выразительных портретов, подчеркивающих вашу индивидуальность</p>
+                <a href="/Services" class="common-btn">Подробнее</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h3>Природная фотосъемка</h3>
+                <p>Фотосессии на природе с красивыми пейзажами и естественным светом</p>
+                <a href="/Services" class="common-btn">Подробнее</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!---------------------------------------------------------
+    Gallery Section
+---------------------------------------------------------->
+<section id="gallery-section">
+    <div class="gallery-inner max-width">
+        <h1 class="section-heading">Гал<span class="red-text">лерея</span></h1>
+
+        <div class="gallery-menubar">
+            <ul class="flex">
+                <li class="active">Все</li>
+                <li>Природа</li>
+                <li>Мода</li>
+                <li>Свадьба</li>
+            </ul>
+        </div>
+
+        <div class="gallery-imgs-container flex">
+            <img src="~/assets/images/p1.jpg" alt="Природа" data-image="nature">
+            <img src="~/assets/images/p2.jpg" alt="Природа" data-image="nature">
+            <img src="~/assets/images/p3.jpg" alt="Мода" data-image="fashion">
+            <img src="~/assets/images/p4.jpg" alt="Мода" data-image="fashion">
+            <img src="~/assets/images/p5.jpg" alt="Свадьба" data-image="wedding">
+            <img src="~/assets/images/p6.jpg" alt="Природа" data-image="nature">
+            <img src="~/assets/images/p7.jpg" alt="Свадьба" data-image="wedding">
+            <img src="~/assets/images/p8.jpg" alt="Мода" data-image="fashion">
+            <img src="~/assets/images/p9.jpg" alt="Свадьба" data-image="wedding">
+        </div>
+    </div>
+</section>
+
+<!---------------------------------------------------------
+    Members Section
+---------------------------------------------------------->
+<section id="members-section">
+    <div class="members-inner max-width">
+        <h1 class="section-heading">Наши <span class="red-text">Участники</span></h1>
+
+        <div class="members-imgs-container flex">
+            <div class="member-card">
+                <img src="~/assets/images/team1.jpg" alt="Максим Иванов">
+                <div class="member-info">
+                    <h3>Максим Иванов</h3>
+                    <p>Фотограф</p>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="~/assets/images/team2.jpg" alt="Анна Петрова">
+                <div class="member-info">
+                    <h3>Анна Петрова</h3>
+                    <p>Видеограф</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script src="~/js/slider.js"></script>
+    <script src="~/js/index.js"></script>
+}

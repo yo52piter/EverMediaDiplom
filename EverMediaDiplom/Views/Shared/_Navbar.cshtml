@@ -1,0 +1,40 @@
+﻿<nav class="navbar">
+    <div class="navbar-inner max-width flex">
+        <div class="logo">
+            <h1>Ever<span class="red-text">Media</span></h1>
+        </div>
+
+        <div class="menubar">
+            <span class="close-menubar-btn"></span>
+            <ul class="flex">
+                <li>
+                    <a asp-controller="Home" asp-action="Index"><span class="red-text">На главную</span></a>
+                </li>
+                <li>
+                    <a asp-controller="Home" asp-action="Gallery">Галерея</a>
+                </li>
+                <li>
+                    <a href="#members-section">Участники</a>
+                </li>
+                <li>
+                    <a asp-controller="Services" asp-action="Index">Услуги</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="navbar-btns">
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <a asp-controller="Account" asp-action="Register" class="common-btn">Регистрация</a>
+                <a asp-controller="Account" asp-action="Login" class="common-btn">Вход</a>
+            }
+            else
+            {
+                <span>Привет, @User.Identity.Name!</span>
+                <form asp-controller="Account" asp-action="Logout" method="post" style="display:inline;">
+                    <button type="submit" class="common-btn">Выйти</button>
+                </form>
+            }
+        </div>
+    </div>
+</nav>

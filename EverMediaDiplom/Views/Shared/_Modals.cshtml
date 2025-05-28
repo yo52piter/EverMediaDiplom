@@ -1,0 +1,27 @@
+﻿<!-- Модальное окно входа -->
+<div id="login-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Вход</h2>
+        <form id="login-form" asp-controller="Account" asp-action="Login" method="post">
+            <input type="email" id="login-email" name="email" placeholder="Email" required>
+            <input type="password" id="login-password" name="password" placeholder="Пароль" required>
+            <button type="submit" class="common-btn">Войти</button>
+        </form>
+    </div>
+</div>
+
+<!-- Модальное окно регистрации -->
+<div id="register-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Регистрация</h2>
+        <form id="register-form" asp-controller="Account" asp-action="Register" method="post">
+            <input type="text" id="register-username" name="username" placeholder="Имя" required>
+            <input type="email" id="register-email" name="email" placeholder="Email" required>
+            <input type="password" id="register-password" name="password" placeholder="Пароль" required>
+            <input type="password" id="register-confirm-password" name="confirmPassword" placeholder="Подтвердите пароль" required>
+            <button type="submit" class="common-btn">Зарегистрироваться</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+﻿@model EverMediaDiplom.ViewModels.LoginViewModel
+@{
+    ViewData["Title"] = "Вход";
+    Layout = "_Layout";
+}
+
+<div class="auth-page">
+    <div class="auth-container">
+        <div class="auth-header">
+            <h2>Вход</h2>
+        </div>
+        <div class="auth-body">
+            <form class="auth-form" asp-controller="Account" asp-action="Login" method="post">
+                <div class="form-group">
+                    <input asp-for="Email" type="email" placeholder="Email">
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input asp-for="Password" type="password" placeholder="Пароль">
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input asp-for="RememberMe" type="checkbox">
+                    <label asp-for="RememberMe">Запомнить меня</label>
+                </div>
+                <button type="submit">Войти</button>
+            </form>
+        </div>
+        <div class="auth-footer">
+            <div class="auth-link">
+                Нет аккаунта? <a asp-controller="Account" asp-action="Register">Зарегистрируйтесь</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

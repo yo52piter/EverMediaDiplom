@@ -1,0 +1,34 @@
+﻿@model EverMediaDiplom.ViewModels.ServiceViewModel
+@{
+    ViewData["Title"] = "Услуги";
+}
+
+<section id="services-section">
+    <div class="services-inner max-width">
+        <h1 class="section-heading">Наши <span class="red-text">Услуги</span></h1>
+
+        <form method="get" class="search-form">
+            <input type="text" asp-for="SearchQuery" placeholder="Поиск услуг...">
+            <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+
+        <div class="services-container">
+            @foreach (var service in Model.Services)
+            {
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>@service.Name</h3>
+                    <p>@service.Description</p>
+                    <div class="service-price">
+                        <span>@service.Price.ToString("N0") ₽</span>
+                        <span>@service.DurationHours ч</span>
+                    </div>
+                    <a asp-controller="PhotoSession" asp-action="Create"
+                       asp-route-serviceId="@service.ServiceId" class="common-btn">Заказать</a>
+                </div>
+            }
+        </div>
+    </div>
+</section>

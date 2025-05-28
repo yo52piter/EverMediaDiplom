@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - EverMedia</title>
+    <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="~/css/utils.css" />
+    <link rel="stylesheet" href="~/css/media-queries.css" />
+    <link rel="stylesheet" href="~/css/modals.css" />
+    <link rel="stylesheet" href="~/css/profile.css" />
+    <link rel="stylesheet" href="~/css/services.css" />
+    <link rel="stylesheet" href="~/css/create.css" />
+
+    <link rel="icon" href="~/lib/favicon.ico" type="image/x-icon" />
+
+    <script src="https://kit.fontawesome.com/8769ee6e50.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    @await Html.PartialAsync("_Navbar")
+
+    <div class="wrapper">
+        @RenderBody()
+        @if (TempData["OrderSuccess"] != null)
+        {
+            <div class="alert alert-success">
+                @TempData["OrderSuccess"]
+            </div>
+        }
+
+    </div>
+
+    @await Html.PartialAsync("_Footer")
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

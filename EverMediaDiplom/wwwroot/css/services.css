@@ -1,0 +1,86 @@
+﻿<style >
+/* Стили для страницы услуг */
+#services-page {
+    padding: 5rem 0;
+}
+
+.service-categories {
+    margin-top: 4rem;
+}
+
+.category {
+    margin-bottom: 5rem;
+    background: white;
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+}
+
+.category h2 {
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+    color: var(--dark-red);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.service-details {
+    display: flex;
+    gap: 3rem;
+}
+
+.service-description {
+    flex: 1;
+}
+
+.service-description p {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.service-description ul {
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+}
+
+.service-description li {
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+    list-style-type: disc;
+}
+
+.price {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--dark-red);
+    margin-top: 2rem;
+}
+
+.service-gallery {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.service-gallery img {
+    width: 250px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.service-gallery img:hover {
+    transform: scale(1.05);
+}
+
+
+@media (max-width: 768px) {
+    .service-details {
+        flex-direction: column;
+    }
+}
+

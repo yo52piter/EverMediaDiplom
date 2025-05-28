@@ -1,0 +1,216 @@
+﻿/* Стили формы заказа */
+.em-order-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.em-order-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+    .em-order-header h1 {
+        font-size: 28px;
+        color: #2c3e50;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 10px;
+    }
+
+    .em-order-header i {
+        color: #e74c3c;
+    }
+
+.em-order-subtitle {
+    color: #7f8c8d;
+    font-size: 16px;
+    margin: 0;
+}
+
+.em-order-form {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+}
+
+.em-service-card {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-left: 4px solid #e74c3c;
+}
+
+.em-service-info h3 {
+    font-size: 20px;
+    margin: 0 0 10px;
+    color: #2c3e50;
+}
+
+.em-service-info p {
+    color: #7f8c8d;
+    margin: 0 0 15px;
+    font-size: 15px;
+}
+
+.em-service-price {
+    display: flex;
+    gap: 20px;
+}
+
+    .em-service-price span:first-child {
+        font-size: 18px;
+        font-weight: 700;
+        color: #e74c3c;
+    }
+
+    .em-service-price span:last-child {
+        font-size: 16px;
+        color: #95a5a6;
+        display: flex;
+        align-items: center;
+    }
+
+.em-form-section {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+    .em-form-section:last-child {
+        border-bottom: none;
+    }
+
+    .em-form-section h3 {
+        font-size: 18px;
+        color: #2c3e50;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .em-form-section i {
+        color: #e74c3c;
+        width: 20px;
+        text-align: center;
+    }
+
+.em-form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.em-form-half {
+    flex: 1;
+}
+
+.em-form-group {
+    margin-bottom: 20px;
+}
+
+    .em-form-group label {
+        display: block;
+        font-size: 14px;
+        color: #7f8c8d;
+        margin-bottom: 8px;
+        font-weight: 500;
+    }
+
+.em-form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: all 0.3s;
+}
+
+    .em-form-control:focus {
+        border-color: #e74c3c;
+        box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+        outline: none;
+    }
+
+    .em-form-control[readonly] {
+        background: #f5f5f5;
+        cursor: not-allowed;
+    }
+
+.em-error-message {
+    display: block;
+    font-size: 13px;
+    color: #e74c3c;
+    margin-top: 5px;
+}
+
+.em-form-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.em-submit-btn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+    .em-submit-btn:hover {
+        background: #c0392b;
+        transform: translateY(-2px);
+    }
+
+.em-cancel-btn {
+    background: none;
+    color: #7f8c8d;
+    border: 1px solid #ddd;
+    padding: 12px 25px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+    .em-cancel-btn:hover {
+        background: #f5f5f5;
+        border-color: #ccc;
+    }
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .em-form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .em-form-half {
+        width: 100%;
+    }
+
+    .em-form-actions {
+        flex-direction: column;
+    }
+
+    .em-submit-btn, .em-cancel-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
